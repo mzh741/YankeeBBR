@@ -95,7 +95,7 @@ startscalable-re(){
     mkdir -p $dir/scalable_re && cd $dir/scalable_re
 	wget -O ./tcp_scalable_re.c https://gist.github.com/anonymous/b156f89dab8aeaad6c98d981a026e283/raw/33187bad9651e65bce803ab7656eff8cf1e496be/tcp_scalable_re.c
 	echo "obj-m:=tcp_scalable_re.o" > Makefile
-	make -C /lib/modules/$(uname -r)/build M=`pwd` modules CC=/usr/bin/gcc-4.9
+	make -C /lib/modules/$(uname -r)/build M=`pwd` modules CC=/usr/bin/gcc
 	insmod tcp_scalable_re.ko
     cp -rf ./tcp_scalable_re.ko /lib/modules/$(uname -r)/kernel/net/ipv4
     depmod -a
